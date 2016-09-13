@@ -60,14 +60,13 @@ On the contrary the following must not compile:
 As this is about struct initialization it isn't influenced in any way to
 constructors. In consequence we have the following:
 
-  struct U {
-    int i;
-
-    this(int a) { i = 2*a };
-  }
-
-  assert(S(21).i   == 42);
-  assert(S(i:21).i == 21);
+    struct U {
+        int i;
+        this(int a) { i = 2*a };
+    }
+    
+    assert(S(21).i   == 42);
+    assert(S(i:21).i == 21);
 
 Adding some kind of fallback on constructors would prove impossible because
 of the arbitrary order of parameters in struct initialization.
